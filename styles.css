@@ -1,59 +1,233 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #003366 0%, #0057b8 100%);
+    color: #fff;
     margin: 0;
-    padding: 0;
-    background-color: #f0f2f5;
-    color: #333;
+    min-height: 100vh;
+    padding-bottom: 180px;
 }
 
 header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-    text-align: center;
+    background: linear-gradient(90deg, #003366 60%, #e10600 100%);
+    color: #fff;
+    padding: 1.2rem 0 1.2rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-h1 {
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
     margin: 0;
-    font-size: 2em;
+    letter-spacing: 1px;
+}
+
+.sky-sports-logo {
+    display: inline-flex;
+    align-items: center;
+    font-size: 2.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.sky-sports-logo .sky {
+    background: #003366;
+    color: #fff;
+    padding: 0.2rem 0.7rem 0.2rem 0.9rem;
+}
+
+.sky-sports-logo .sports {
+    background: #e10600;
+    color: #fff;
+    padding: 0.2rem 0.7rem;
+}
+
+.sky-sports-logo .news {
+    background: #fff;
+    color: #003366;
+    padding: 0.2rem 0.9rem 0.2rem 0.7rem;
 }
 
 main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 15px;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-.match {
-    background: white;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.scores-section {
+    margin-bottom: 2.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+}
+
+.scores-section h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    background: #e10600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px 8px 0 0;
+    margin: -1.5rem -1.2rem 1rem -1.2rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 
-.match h3 {
+#scorebat-scores, #ft-scores, #scores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: flex-start;
+    min-height: 80px;
+}
+
+#scorebat-scores > div, #ft-scores > div, #scores > div {
+    background: #f4f6fa;
+    color: #003366;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    padding: 1rem 1.2rem;
+    min-width: 220px;
+    flex: 1 1 220px;
+    max-width: 320px;
     margin: 0;
-    font-size: 1.2em;
-    color: #2c3e50;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.15s;
 }
 
-.match p {
-    margin: 5px 0;
-    font-size: 0.9em;
+#scorebat-scores > div:hover, #ft-scores > div:hover, #scores > div:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
 }
 
-.score {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #e74c3d;
+#news-feed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: linear-gradient(90deg, #003366 60%, #e10600 100%);
+    color: #fff;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.12);
+    border-radius: 0;
+    margin: 0;
+    padding: 0 0 0.5rem 0;
 }
 
-.error, .no-matches {
-    text-align: center;
-    color: #7f8c8d;
-    font-style: italic;
+#news-feed .news-title-bar {
+    width: 100%;
+    background: #e10600;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 0.4rem 1.2rem;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#news-feed h2 {
+    display: none;
+}
+
+#news-articles {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1.2rem;
+    overflow-x: auto;
+    padding: 0 1rem;
+}
+
+.news-article {
+    background: #fff;
+    color: #003366;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    padding: 0.7rem 1rem;
+    min-width: 220px;
+    max-width: 320px;
+    flex: 0 0 220px;
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.news-article:hover {
+    background: #e6eaf3;
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+}
+
+.news-article a {
+    color: #003366;
+    text-decoration: none;
+    width: 100%;
+}
+
+.news-article h4 {
+    margin: 0 0 0.2rem 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.news-article p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #e10600;
+}
+
+@media (max-width: 700px) {
+    header h1 {
+        font-size: 1.1rem;
+    }
+    .sky-sports-logo {
+        font-size: 1.2rem;
+    }
+    header {
+        padding: 0.5rem 0 0.5rem 0;
+    }
+    .scores-section {
+        padding: 0.7rem 0.5rem 0.5rem 0.5rem;
+    }
+    #scorebat-scores, #ft-scores, #scores {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    main {
+        margin: 1rem auto;
+    }
+    #news-articles {
+        flex-direction: column;
+        gap: 1rem;
+        overflow-x: visible;
+    }
+    .news-article {
+        min-width: 0;
+        max-width: 100%;
+    }
+    #news-feed {
+        padding: 0.2rem 0 0.2rem 0;
+    }
+    body {
+        padding-bottom: 260px;
+    }
 }

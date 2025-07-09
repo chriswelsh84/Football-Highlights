@@ -1,6 +1,7 @@
 const scoresContainer = document.getElementById('scores');
 const ftScoresContainer = document.getElementById('ft-scores');
 const scorebatScoresContainer = document.getElementById('scorebat-scores');
+const newsArticlesContainer = document.getElementById('news-articles');
 
 async function fetchScorebatHighlights() {
     try {
@@ -100,9 +101,43 @@ function displayFTScores(matches) {
     });
 }
 
+async function fetchBBCSportsNews() {
+    // Use BBC RSS feed (free and public)
+    const rssUrl = 'https://feeds.bbci.co.uk/sport/rss.xml?edition=uk';
+    try {
+        const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`);
+        if (!response.ok) throw new Error('Failed to fetch news');
+        const data = await response.json();
+        displayNewsArticles(data.items);
+    } catch (error) {
+        newsArticlesContainer.innerHTML = '<p class="error">Error fetching news. Please try again later.</p>';
+        console.error('News Error:', error);
+    }
+}
+
+function displayNewsArticles(articles) {
+    newsArticlesContainer.innerHTML = '';
+    if (!articles || articles.length === 0) {
+        newsArticlesContainer.innerHTML = '<p class="no-matches">No news found.</p>';
+        return;
+    }
+    articles.slice(0, 6).forEach(article => {
+        const articleDiv = document.createElement('div');
+        articleDiv.classList.add('news-article');
+        articleDiv.innerHTML = `
+            <a href="${article.link}" target="_blank" rel="noopener">
+                <h4>${article.title}</h4>
+                <p>${article.pubDate ? new Date(article.pubDate).toLocaleDateString() : ''}</p>
+            </a>
+        `;
+        newsArticlesContainer.appendChild(articleDiv);
+    });
+}
+
 // Initial fetch
 fetchScorebatHighlights();
 fetchFTScores();
+fetchBBCSportsNews();
 // Optionally refresh every 10 minutes
 setInterval(fetchScorebatHighlights, 600000);
 setInterval(fetchFTScores, 600000);
