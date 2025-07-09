@@ -248,7 +248,11 @@ main {
 }
 
 #scorebat-matches.scores-section {
-    background: linear-gradient(180deg, #ffe600 0%, #ffb300 100%); /* Bold yellow fading to yellow/orange */
+    background: linear-gradient(180deg, #ffe600 0%, #ffb300 100%);
+    /* Add a subtle diagonal lines texture, not too many */
+    background-image:
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.18) 0px, rgba(255,255,255,0.18) 3px, transparent 3px, transparent 32px),
+        linear-gradient(180deg, #ffe600 0%, #ffb300 100%);
 }
 
 @media (max-width: 700px) {
