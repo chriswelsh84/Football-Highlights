@@ -1,0 +1,31 @@
+{
+  "warning": "This endpoint is deprecated and will stop working soon: please use /v3/feed/ instead.",
+  "response": [
+    {
+      "title": "Fluminense - Chelsea",
+      "competition": "WORLD: Club World Cup - Final",
+      "matchviewUrl": "https://www.scorebat.com/fluminense-vs-chelsea-live-stream/",
+      "thumbnail": "https://www.scorebat.com/og/m/og1167272.jpeg",
+      "date": "2024-02-12T18:00:00+0000",
+      "videos": [
+        {
+          "title": "Highlights",
+          "embed": "<iframe src=\"https://www.scorebat.com/embed/v/65c9e2e7b7a1e/\" frameborder=\"0\" allowfullscreen></iframe>"
+        }
+      ]
+    },
+    {
+      "title": "Manchester City 2-1 Manchester United",
+      "competition": "ENGLAND: Premier League",
+      "matchviewUrl": "https://www.scorebat.com/manchester-city-vs-manchester-united-live-stream/",
+      "thumbnail": "https://www.scorebat.com/og/m/og1167273.jpeg",
+      "date": "2024-02-11T16:30:00+0000",
+      "videos": [
+        {
+          "title": "Highlights",
+          "embed": "<iframe src=\"https://www.scorebat.com/embed/v/65c9e2e7b7a1f/\" frameborder=\"0\" allowfullscreen></iframe>"
+        }
+      ]
+    }
+  ]
+}
