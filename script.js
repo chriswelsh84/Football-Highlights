@@ -21,7 +21,31 @@ function displayScorebatHighlights(matches) {
         scorebatScoresContainer.innerHTML = '<p class="no-matches">No recent matches found.</p>';
         return;
     }
-    matches.slice(0, 10).forEach(match => {
+    // Only show European competitions
+    const europeanComps = [
+        'Champions League', 'UEFA Champions League', 'Europa League', 'UEFA Europa League',
+        'Europa Conference League', 'UEFA Europa Conference League',
+        'Premier League', 'La Liga', 'Serie A', 'Bundesliga', 'Ligue 1',
+        'Eredivisie', 'Primeira Liga', 'Scottish Premiership',
+        'Super Lig', 'Belgian Pro League', 'Swiss Super League',
+        'Russian Premier League', 'Austrian Bundesliga', 'Greek Super League',
+        'Ukrainian Premier League', 'Danish Superliga', 'Czech First League',
+        'Norwegian Eliteserien', 'Swedish Allsvenskan', 'Polish Ekstraklasa',
+        'Romanian Liga I', 'Croatian HNL', 'Serbian SuperLiga', 'Slovak Super Liga',
+        'Slovenian PrvaLiga', 'Bulgarian First League', 'Cypriot First Division',
+        'Hungarian NB I', 'Finnish Veikkausliiga', 'Irish Premier Division',
+        'Scottish Championship', 'English Championship', 'English League One', 'English League Two'
+    ];
+    const filtered = matches.filter(match => {
+        return europeanComps.some(comp =>
+            (match.competition || '').toLowerCase().includes(comp.toLowerCase())
+        );
+    });
+    if (filtered.length === 0) {
+        scorebatScoresContainer.innerHTML = '<p class="no-matches">No recent European competition matches found.</p>';
+        return;
+    }
+    filtered.slice(0, 10).forEach(match => {
         // Try to extract score from the title, e.g. "Manchester City 2-1 Manchester United"
         let score = '';
         let teams = '';
