@@ -113,6 +113,19 @@ main {
     box-shadow: 0 4px 16px rgba(0,0,0,0.13);
 }
 
+#scorebat-scores > div.match {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18), 0 0 0 3px #ffe600;
+    border-radius: 12px;
+    border: none;
+    background: #fff;
+    margin-bottom: 1.2rem;
+    transition: box-shadow 0.18s;
+}
+
+#scorebat-scores > div.match:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.22), 0 0 0 3px #ffb300;
+}
+
 #news-feed {
     position: fixed;
     left: 0;
@@ -193,6 +206,49 @@ main {
     margin: 0;
     font-size: 0.92rem;
     color: #e10600;
+}
+
+#league-badges {
+    position: fixed;
+    top: 50%;
+    left: 70px;
+    right: auto;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.2rem;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    transform: translateY(-50%);
+}
+
+.league-badge {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin: 0.5rem 0;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+    padding: 0.7rem;
+    transition: transform 0.18s, box-shadow 0.18s, filter 0.18s, border-color 0.18s;
+    display: block;
+    border: 3px solid #e10600;
+    cursor: pointer;
+}
+
+.league-badge:hover {
+    transform: scale(1.18) rotate(-8deg);
+    filter: drop-shadow(0 0 16px #0057b8) brightness(1.15);
+    border-color: #0057b8;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+}
+
+#scorebat-matches.scores-section {
+    background: linear-gradient(180deg, #ffe600 0%, #ffb300 100%); /* Bold yellow fading to yellow/orange */
 }
 
 @media (max-width: 700px) {

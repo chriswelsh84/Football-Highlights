@@ -46,8 +46,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <aside id="league-badges">
+        <img src="https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg" alt="Premier League" title="Premier League" class="league-badge premier-league" id="premier-league-badge">
+        <img src="assets/laliga.png" alt="La Liga" title="La Liga" class="league-badge" id="laliga-badge">
+        <img src="assets/seriea.png" alt="Serie A" title="Serie A" class="league-badge" id="seriea-badge">
+    </aside>
     <header>
-        <span class="sky-sports-logo"><span class="sky">Cloud</span> <span class="sports">Sports</span> <span class="news">News</span></span>
+        <span class="sky-sports-logo"><span class="sky">Sly</span> <span class="sports">Sports</span> <span class="news">News</span></span>
     </header>
     <main>
         <section id="scorebat-matches" class="scores-section">
@@ -61,5 +66,27 @@
         <div id="news-articles"></div>
     </section>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var plBadge = document.getElementById('premier-league-badge');
+            if (plBadge) {
+                plBadge.addEventListener('click', function() {
+                    window.open('https://www.premierleague.com/en/tables?competition=8&season=2025&round=L_1&matchweek=1&ha=-1', '_blank');
+                });
+            }
+            var serieaBadge = document.getElementById('seriea-badge');
+            if (serieaBadge) {
+                serieaBadge.addEventListener('click', function() {
+                    window.open('https://www.legaseriea.it/en/serie-a/classifica', '_blank');
+                });
+            }
+            var laligaBadge = document.getElementById('laliga-badge');
+            if (laligaBadge) {
+                laligaBadge.addEventListener('click', function() {
+                    window.open('https://www.laliga.com/en-GB/laliga-easports/standing', '_blank');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
