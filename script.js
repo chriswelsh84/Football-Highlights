@@ -158,10 +158,25 @@ function displayNewsArticles(articles) {
     });
 }
 
-// Initial fetch
+// Static example for transfer news ticker
+function fetchTransferNews() {
+    const staticNews = [
+        "Manchester United sign striker from Ajax",
+        "Chelsea complete deal for French midfielder",
+        "Liverpool announce new goalkeeper signing",
+        "Arsenal agree terms with Italian defender",
+        "Real Madrid secure Brazilian wonderkid",
+        "Bayern Munich land Dutch winger",
+        "Juventus confirm swap deal with Inter",
+        "PSG sign Portuguese full-back"
+    ];
+    const ticker = document.getElementById('transfer-news-ticker');
+    if (ticker) {
+        ticker.textContent = staticNews.join('  •  ');
+    }
+}
+document.addEventListener('DOMContentLoaded', fetchTransferNews);
+
 fetchScorebatHighlights();
 fetchFTScores();
 fetchBBCSportsNews();
-// Optionally refresh every 10 minutes
-setInterval(fetchScorebatHighlights, 600000);
-setInterval(fetchFTScores, 600000);
